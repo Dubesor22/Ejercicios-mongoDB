@@ -182,4 +182,18 @@
 
 
 
+// Seleccione el número total de publicaciones que tienen más de un comentario
+
+          db.Posts.find({comments: {$size: 2}})
+
+// Seleccione la última publicación creada
+
+          db.Posts.find().sort({_id: -1}).limit(1)
+
+// Selecciona 5 publicaciones y que sean las últimas creadas
+
+          db.Posts.find().sort({_id: -1}).limit(5)
+// Elimina todas las publicaciones que tengan más de un comentario
+
+          db.Posts.deleteMany({comments:{$size: 2}})
 
